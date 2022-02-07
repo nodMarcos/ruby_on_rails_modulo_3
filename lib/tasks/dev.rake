@@ -13,8 +13,8 @@ namespace :dev do
       showSpinner("Migrating DB...") do
         %x(rails db:migrate) 
       end
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
+      %x(rails dev:add_coins)
       
     else
       puts "Você não está em modo de desenvolvimento"
@@ -53,17 +53,20 @@ namespace :dev do
           {
               description: "Bitcoin",
               acronym: "BTC",
-              url_image: "https://th.bing.com/th/id/R.9a3c543fafe8f20af40857e36273e97e?rik=yLD5XtvDHaA4PA&riu=http%3a%2f%2fwww.pngpix.com%2fwp-content%2fuploads%2f2016%2f10%2fPNGPIX-COM-Bitcoin-PNG-Image.png&ehk=b4g8AqpnJo%2fFoc8MY5sQgYH4FEhrLZ5aj50NGPdhCBg%3d&risl=&pid=ImgRaw&r=0"
+              url_image: "https://th.bing.com/th/id/R.9a3c543fafe8f20af40857e36273e97e?rik=yLD5XtvDHaA4PA&riu=http%3a%2f%2fwww.pngpix.com%2fwp-content%2fuploads%2f2016%2f10%2fPNGPIX-COM-Bitcoin-PNG-Image.png&ehk=b4g8AqpnJo%2fFoc8MY5sQgYH4FEhrLZ5aj50NGPdhCBg%3d&risl=&pid=ImgRaw&r=0",
+              mining_type: MiningType.find_by(acronym: 'PoW')
           },
           {
               description: "Ethereum",
               acronym: "ETH",
-              url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1200px-Ethereum_logo_2014.svg.png"
+              url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1200px-Ethereum_logo_2014.svg.png",
+              mining_type: MiningType.all.sample
           },
           {
               description: "Dash",
               acronym: "DASH",
-              url_image: "https://cdn.freebiesupply.com/logos/large/2x/dash-3-logo-png-transparent.png"
+              url_image: "https://cdn.freebiesupply.com/logos/large/2x/dash-3-logo-png-transparent.png",
+              mining_type: MiningType.all.sample
           }
       ]
       

@@ -3,6 +3,10 @@ module ApplicationHelper
         data_us.strftime("%d/%m/%Y")
     end
     
+    def locale
+        I18n.locale == :en ? "Estados Unidos" : "Português do Brasil"
+    end
+    
     def ambiente_rails
         if Rails.env.development?
             "Desenvolvimento"
