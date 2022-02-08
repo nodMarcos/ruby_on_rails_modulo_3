@@ -1,7 +1,17 @@
+<p>
+    <%= link_to 'Português', root_path(locale: "pt-BR") %>
+</p>
+<p>
+    <%= link_to 'English', root_path(locale: "en") %>
+</p>
+
 <h1>Seja Bem-Vindo!</h1>
-<p>O idioma usado nessa aplicação é: <strong><%= locale %></strong></p>
+<p>O idioma usado nessa aplicação é: <strong><%= t('actual_locale') %></strong></p>
 <p><strong>Data: <%= l(Date.today) %></strong></p>
+<h2><%= cookies[:curso] %></h2>
+<h2><%= session[:curso] %></h2>
 <p><%= t('hello') %></p>
+
 <ul>
     <%= render "menu" %>
    
